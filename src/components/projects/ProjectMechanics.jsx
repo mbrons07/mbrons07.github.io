@@ -9,7 +9,7 @@ export default function ProjectMechanics({ project }) {
 
   return (
     <div className="mx-4">
-      <h2 className="text-xl font-semibold text-(--text) mb-4">Code Highlights</h2>
+      <h2 className="text-xl font-semibold text-(--text) mb-4">C-code Highlights... k-kijk niet naar mijn bugs!</h2>
 
       {project.mechanics.map((m, i) => (
         <div key={i} className="flex flex-col gap-4 border-b border-(--bordercolor) pb-4 mb-4">

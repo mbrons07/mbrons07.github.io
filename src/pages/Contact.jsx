@@ -14,9 +14,9 @@ export default function Contact() {
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-(--text) mb-4">Contact</h1>
+          <h1 className="text-5xl font-bold text-(--text) mb-4">C-contact?!</h1>
           <p className="text-xl text-(--muted) max-w-2xl mx-auto">
-            Interesse in samenwerking of gewoon een vraag? Neem gerust contact op!
+            A-alsof ik op een berichtje van jou zit te wachten! M-maar als het echt moet, kun je contact opnemen...
           </p>
         </div>
 
@@ -30,10 +30,10 @@ export default function Contact() {
                 <Envelope className="w-8 h-8" />
               </div>
               <h2 className="text-2xl font-bold text-(--text) mb-2 text-center lg:text-left">
-                Direct contact
+                D-direct contact?!
               </h2>
               <p className="text-(--muted) mb-6 text-center lg:text-left">
-                Stuur me een email en ik reageer zo snel mogelijk.
+                S-stuur me een email... maar verwacht niet dat ik meteen reageer, oké?!
               </p>
             </div>
             <a
@@ -49,7 +49,7 @@ export default function Contact() {
 
           {/* Social Links - Right/Bottom */}
           <div className="lg:flex-1 flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-(--text) mb-2">Vind me online</h2>
+            <h2 className="text-2xl font-bold text-(--text) mb-2">S-stalk me niet online!</h2>
             {socialLinks.map((social) => (
               <a
                 key={social.name}

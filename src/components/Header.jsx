@@ -25,7 +25,7 @@ export default function Header() {
           onClick={scrollToTop}
           className="text-xl font-bold text-(--accent) hover:opacity-80 transition-opacity"
         >
-          Portfolio
+          P-portfolio?!
         </Link>
 
         {/* Navigatie links */}
@@ -39,7 +39,7 @@ export default function Header() {
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
-            Projects
+            P-projecten
           </Link>
 
           <Link
@@ -51,7 +51,7 @@ export default function Header() {
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
-            Over Mij
+            O-over Mij
           </Link>
 
           <Link
@@ -63,7 +63,7 @@ export default function Header() {
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
-            Contact
+            C-contact?!
           </Link>
         </div>
       </nav>

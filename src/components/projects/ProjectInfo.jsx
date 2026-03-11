@@ -7,7 +7,7 @@ export default function ProjectInfo({ project }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Description - takes 2 columns on desktop */}
         <div className="md:col-span-2 space-y-3">
-          <h2 className="text-xl font-semibold text-(--text)">Over dit project</h2>
+          <h2 className="text-xl font-semibold text-(--text)">O-over dit project... n-niet dat ik het je graag vertel!</h2>
 
           {/* Render each paragraph separately for better spacing */}
           {paragraphs.map((text, i) => (
@@ -19,21 +19,21 @@ export default function ProjectInfo({ project }) {
 
         {/* Project details sidebar */}
         <div className="h-fit md:self-start">
-          <h3 className="text-xl font-semibold mb-4 text-(--text) border-b border-(--bordercolor) pb-2">Details</h3>
+          <h3 className="text-xl font-semibold mb-4 text-(--text) border-b border-(--bordercolor) pb-2">D-details! </h3>
 
           <ul className="text-sm space-y-2 text-(--muted)">
             <li className="flex justify-between border-b border-(--bordercolor) pb-1">
-              <span className="font-medium text-(--text)">Rol</span>
+              <span className="font-medium text-(--text)">M-mijn Rol!</span>
               <span>{project.projectRole}</span>
             </li>
 
             <li className="flex justify-between border-b border-(--bordercolor) pb-1">
-              <span className="font-medium text-(--text)">Tijdlijn</span>
+              <span className="font-medium text-(--text)">T-tijdlijn?!</span>
               <span>{project.timeline}</span>
             </li>
 
             <li className="flex justify-between items-center pb-1">
-              <span className="font-medium text-(--text)">Tags</span>
+              <span className="font-medium text-(--text)">T-tags!</span>
               <div className="flex flex-wrap gap-1.5 justify-end">
                 {project.tags.map((tag) => (
                   <span key={tag} className="tag">

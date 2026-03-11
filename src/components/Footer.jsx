@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-(--surface) border-t border-(--bordercolor) py-6">
       <div className="container mx-auto px-4 text-center">
         <p className="text-(--muted) text-sm">
-          © {new Date().getFullYear()} Mick Brons. Alle rechten voorbehouden.
+          © {new Date().getFullYear()} Mick Brons. N-niet stelen, oké?! Baka!
         </p>
       </div>
     </footer>

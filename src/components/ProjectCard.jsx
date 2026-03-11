@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <span className="text-(--text) font-semibold">Bekijk Project →</span>
+          <span className="text-(--text) font-semibold">B-bekijk dit project! M-maar verwacht niet veel... →</span>
         </div>
       </div>
 
