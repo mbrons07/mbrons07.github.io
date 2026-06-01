@@ -1,11 +1,15 @@
+import { useLang } from "../context/LanguageContext";
+import { t } from "../translations";
+
 export default function About() {
+  const { lang } = useLang();
+  const tr = t[lang];
+
   return (
     <main className="container mx-auto px-4 py-12">
       <div className="max-w-2xl">
-        <h1 className="text-5xl font-bold text-(--text) mb-6">Over Mij</h1>
-        <p className="text-lg text-(--muted) leading-relaxed">
-          ik ben Mick een xr developer in the making. in mijn vrije tijd lees ik veel manga en natuurlijk game ik ook wel hier en daar. ik ben meestal best wel verlegen als het kotm met nieuwe mensen praten maar als ik mensen leer kennen dan ben ik een persoon die de sfeer omhoog haalt.
-        </p>
+        <h1 className="text-5xl font-bold text-(--text) mb-6">{tr.about.title}</h1>
+        <p className="text-lg text-(--muted) leading-relaxed">{tr.about.body}</p>
       </div>
     </main>
   );

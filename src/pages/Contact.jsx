@@ -1,12 +1,16 @@
 import { siteConfig } from "../siteConfig";
 import { GitHub, LinkedIn, Itch, Envelope, ChevronRight } from "../components/icons/icons.jsx";
+import { useLang } from "../context/LanguageContext";
+import { t } from "../translations";
 
 export default function Contact() {
-  // Social media configuratie met iconen
+  const { lang } = useLang();
+  const tr = t[lang];
+
   const socialLinks = [
-    { name: "GitHub", url: siteConfig.socials.github, description: "Bekijk mijn code en projecten", icon: <GitHub className="w-8 h-8" /> },
-    { name: "LinkedIn", url: siteConfig.socials.linkedin, description: "Connect met mij", icon: <LinkedIn className="w-8 h-8" /> },
-    { name: "Itch.io", url: siteConfig.socials.itch, description: "Speel mijn games", icon: <Itch className="w-8 h-8" /> },
+    { name: "GitHub", url: siteConfig.socials.github, description: tr.contact.github, icon: <GitHub className="w-8 h-8" /> },
+    { name: "LinkedIn", url: siteConfig.socials.linkedin, description: tr.contact.linkedin, icon: <LinkedIn className="w-8 h-8" /> },
+    { name: "Itch.io", url: siteConfig.socials.itch, description: tr.contact.itch, icon: <Itch className="w-8 h-8" /> },
   ];
 
   return (
@@ -14,32 +18,30 @@ export default function Contact() {
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-(--text) mb-4">Contact</h1>
-          <p className="text-xl text-(--muted) max-w-2xl mx-auto">
-            mijn contact informatie's
-          </p>
+          <h1 className="text-5xl font-bold text-(--text) mb-4">{tr.contact.title}</h1>
+          <p className="text-xl text-(--muted) max-w-2xl mx-auto">{tr.contact.subtitle}</p>
         </div>
 
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Email CTA - Left/Top */}
+          {/* Email CTA */}
           <div className="lg:flex-1 bg-(--surface) rounded-lg border border-(--bordercolor) p-8 flex flex-col justify-center">
             <div className="mb-6">
-              <div className="w-16 h-16 mx-auto lg:mx-0 mb-4 rounded-full bg-(--accent)/10 
+              <div className="w-16 h-16 mx-auto lg:mx-0 mb-4 rounded-full bg-(--accent)/10
                               flex items-center justify-center text-(--accent)">
                 <Envelope className="w-8 h-8" />
               </div>
               <h2 className="text-2xl font-bold text-(--text) mb-2 text-center lg:text-left">
-                Direct contact
+                {tr.contact.directContact}
               </h2>
               <p className="text-(--muted) mb-6 text-center lg:text-left">
-                Stuur me een email en ik kom zo snel mogelijk bij u.
+                {tr.contact.emailDesc}
               </p>
             </div>
             <a
               href={`mailto:${siteConfig.socials.email}`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--accent) 
-                         text-(--accent-text) rounded-lg font-semibold 
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--accent)
+                         text-(--accent-text) rounded-lg font-semibold
                          hover:bg-(--accent-hover) transition-colors"
             >
               <Envelope className="w-5 h-5" />
@@ -47,9 +49,9 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* Social Links - Right/Bottom */}
+          {/* Social Links */}
           <div className="lg:flex-1 flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-(--text) mb-2">Vind me online</h2>
+            <h2 className="text-2xl font-bold text-(--text) mb-2">{tr.contact.findMe}</h2>
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -59,26 +61,19 @@ export default function Contact() {
                 className="group p-4 bg-(--surface) rounded-lg border border-(--bordercolor)
                            hover:border-(--accent) transition-all flex items-center gap-4"
               >
-                {/* Icon */}
-                <div className="w-12 h-12 flex-shrink-0 rounded-full bg-(--bg) 
+                <div className="w-12 h-12 flex-shrink-0 rounded-full bg-(--bg)
                                 flex items-center justify-center text-(--muted)
-                                group-hover:text-(--accent) group-hover:bg-(--accent)/10 
+                                group-hover:text-(--accent) group-hover:bg-(--accent)/10
                                 transition-colors">
                   {social.icon}
                 </div>
-
-                {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-(--text) 
+                  <h3 className="text-lg font-semibold text-(--text)
                                  group-hover:text-(--accent) transition-colors">
                     {social.name}
                   </h3>
-                  <p className="text-sm text-(--muted)">
-                    {social.description}
-                  </p>
+                  <p className="text-sm text-(--muted)">{social.description}</p>
                 </div>
-
-                {/* Arrow */}
                 <ChevronRight className="w-5 h-5 text-(--muted) group-hover:text-(--accent) group-hover:translate-x-1 transition-all" />
               </a>
             ))}
