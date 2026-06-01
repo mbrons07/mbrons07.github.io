@@ -21,7 +21,7 @@ export default function Home() {
           <img
             src={siteConfig.aboutImage}
             alt={siteConfig.name}
-            className="w-40 h-40 rounded-full object-cover border-4 border-(--accent) shadow-lg mb-6"
+            className="w-40 h-40 rounded-full object-cover border-4 border-(--accent) shadow-lg mb-6 animate-bounce-around"
           />
 
           {/* Naam en rol */}
@@ -37,11 +37,22 @@ export default function Home() {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-(--text) mb-8 text-center">Mijn Projecten</h2>
 
-          {/* Grid met ProjectCards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
+          </div>
+
+          <div className="mt-16 text-center">
+             <h2 className="text-3xl font-bold text-(--text) mb-8">Game Jams</h2>
+             <div className="max-w-md mx-auto p-8 rounded-2xl bg-(--card-bg) border border-(--border) hover:border-(--accent) transition-all cursor-pointer group" onClick={() => window.location.hash = "#/gamejams"}>
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🕹️</div>
+                <h3 className="text-2xl font-bold mb-2">Game Jams</h3>
+                <p className="text-(--muted)">Bekijk mijn game jam projecten, inclusief Bubble Blaster en Curse of the Baby Mask.</p>
+                <div className="mt-4 text-(--accent) font-medium group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Bekijk ze allemaal <span className="ml-2">→</span>
+                </div>
+             </div>
           </div>
         </div>
       </section>

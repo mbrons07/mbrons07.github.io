@@ -7,11 +7,11 @@ export default function ProjectCard({ project }) {
       className="group block bg-(--surface) rounded-lg overflow-hidden border border-(--bordercolor) hover:border-(--accent) transition-all duration-300">
 
       {/* Thumbnail met overlay */}
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden rounded-t-lg">
         <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
           <span className="text-(--text) font-semibold">Bekijk Project →</span>
         </div>
       </div>
@@ -22,9 +22,9 @@ export default function ProjectCard({ project }) {
         <p className="text-sm text-(--muted) line-clamp-2">{project.tagline}</p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-3">
+        <div className="flex flex-wrap gap-2 mt-3 block pointer-events-none">
           {project.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="tag">
+            <span key={tag} className="tag pointer-events-auto">
               {tag}
             </span>
           ))}

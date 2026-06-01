@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c"></canvas>
+<script>
+  let w = 32; let h = 32;
+  let canvas = document.getElementById('c');
+  canvas.width = w; canvas.height = h;
+  let ctx = canvas.getContext('2d');
+  
+  // Create a minimal 32x32 blue box with a pointer shape by hand.
+  // This guarantees perfect transparency.
+  ctx.clearRect(0, 0, w, h);
+  
+  // Pointer outline
+  ctx.fillStyle = 'black';
+  ctx.beginPath();
+  ctx.moveTo(0,0);
+  ctx.lineTo(20, 10);
+  ctx.lineTo(10, 12);
+  ctx.lineTo(12, 22);
+  ctx.closePath();
+  ctx.fill();
+
+  // Pointer inside (Rem blue)
+  ctx.fillStyle = '#15ccf6';
+  ctx.beginPath();
+  ctx.moveTo(2,3);
+  ctx.lineTo(16, 10);
+  ctx.lineTo(10, 11);
+  ctx.lineTo(11, 18);
+  ctx.closePath();
+  ctx.fill();
+
+  // Draw Rem Hair clip accessory (magenta)
+  ctx.fillStyle = '#ff00ff';
+  ctx.fillRect(8, 4, 4, 4);
+
+  // Download the cursor
+  let dataUrl = canvas.toDataURL('image/png');
+  console.log(dataUrl);
+  
+  // Create download link
+  let link = document.createElement('a');
+  link.href = dataUrl;
+  link.download = 'cursor-pointer.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+</script>
+</body>
+</html>

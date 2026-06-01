@@ -17,18 +17,120 @@
   --radius-sm: 0.375rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
-  
+
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 30px rgba(251, 146, 60, 0.1);
-  
-  --font-main: "Roboto", sans-serif; 
+
+  --font-main: "Roboto", sans-serif;
+}
+
+@layer utilities {
+  .tag {
+    @apply px-2 py-1 bg-(--bg) text-(--muted) rounded text-xs font-medium border border-(--bordercolor);
+  }
+
+  .glass-panel {
+    @apply bg-(--surface) border border-(--bordercolor) shadow-lg backdrop-blur-md rounded-xl;
+  }
+
+  @keyframes wag {
+
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+
+    50% {
+      transform: rotate(15deg);
+    }
+  }
+
+  @keyframes walk-left {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes walk-right {
+
+    0%,
+    100% {
+      transform: translateY(-4px);
+    }
+
+    50% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce-slow {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  .animate-wag {
+    animation: wag 0.3s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .animate-walk-left {
+    animation: walk-left 0.6s ease-in-out infinite;
+  }
+
+  .animate-walk-right {
+    animation: walk-right 0.6s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-around {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-bounce-around {
+    animation: bounce-around 5s ease-in-out infinite;
+  }
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-main);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0,0 L20,10 L10,12 L12,22 Z" fill="%23000000"/><path d="M2,3 L16,10 L10,11 L11,18 Z" fill="%2315ccf6"/><rect x="8" y="4" width="4" height="4" fill="%23ff00ff"/></svg>') 0 0,
+    auto;
+}
+
+/* Custom pointer for clickable elements */
+a,
+button,
+[role="button"],
+.cursor-pointer {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0,0 L20,10 L10,12 L12,22 Z" fill="%23000000"/><path d="M2,3 L16,10 L10,11 L11,18 Z" fill="%2315ccf6"/><rect x="8" y="4" width="4" height="4" fill="%23ff00ff"/></svg>') 0 0,
+    pointer;
 }
 
 .container {

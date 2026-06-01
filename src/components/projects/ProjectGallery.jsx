@@ -32,12 +32,21 @@ export default function ProjectGallery({ project }) {
           <div className="overflow-hidden bg-(--surface) aspect-video">
             {/* Video Slide */}
             {slides[currentIndex].type === "video" && (
-              <iframe
-                src={slides[currentIndex].src}
-                title="Project Video"
-                allowFullScreen
-                className="w-full h-full"
-              />
+              slides[currentIndex].src.startsWith('http') ? (
+                <iframe
+                  src={slides[currentIndex].src}
+                  title="Project Video"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              ) : (
+                <video
+                  src={slides[currentIndex].src}
+                  title="Project Video"
+                  controls
+                  className="w-full h-full object-cover"
+                />
+              )
             )}
 
             {/* Image Slide */}

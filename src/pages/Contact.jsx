@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-(--text) mb-4">Contact</h1>
           <p className="text-xl text-(--muted) max-w-2xl mx-auto">
-            Interesse in samenwerking of gewoon een vraag? Neem gerust contact op!
+            mijn contact informatie's
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function Contact() {
                 Direct contact
               </h2>
               <p className="text-(--muted) mb-6 text-center lg:text-left">
-                Stuur me een email en ik reageer zo snel mogelijk.
+                Stuur me een email en ik kom zo snel mogelijk bij u.
               </p>
             </div>
             <a
@@ -79,7 +79,7 @@ export default function Contact() {
                 </div>
 
                 {/* Arrow */}
-                    <ChevronRight className="w-5 h-5 text-(--muted) group-hover:text-(--accent) group-hover:translate-x-1 transition-all" />
+                <ChevronRight className="w-5 h-5 text-(--muted) group-hover:text-(--accent) group-hover:translate-x-1 transition-all" />
               </a>
             ))}
           </div>
