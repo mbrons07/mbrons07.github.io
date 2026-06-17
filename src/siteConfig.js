@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Mick Brons",
   role: "XR Developer",
   tagline: "Ik bouw interactieve XR-ervaringen die zich natuurlijk en intuïtief aanvoelen.",
-  aboutImage: "insert foto hier",
+  aboutImage: "/src/components/projects/pfp.png",
   cv: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
 
   socials: {
