@@ -28,30 +28,55 @@ public void OnSelectExited(SelectExitEventArgs args)
 {
     grabbed = false;
     rb.isKinematic = false;
-}`}]},{id:"( not just ) gold diggers",title:"( not just ) gold diggers",tagline:"Een snelle twin-stick shooter met vijandige AI.",description:"kom bij ons kijken om fossielen op te graven",thumbnail:"/assets/poster garry.png",youtube:"https://www.youtube.com/watch?v=dQw4w9WgXcQ",screenshots:["https://picsum.photos/seed/shooter1/1200/800","https://picsum.photos/seed/shooter2/1200/800"],tags:["Unity","C#","AI","Topdown"],projectRole:"Programmer",timeline:"1 week",mechanics:[{subtitle:"Enemy AI State Machine",description:"Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",image:"https://placehold.co/600x400?text=Enemy+AI",code:`void Update()
+}`}]},{id:"( not just ) gold diggers",title:"( not just ) gold diggers",tagline:"Graaf fossielen op en ontdek welke rariteit je krijgt.",description:"( not just ) gold diggers is een fossielengraafspel waarbij spelers stenen breken om fossielen van verschillende zeldzaamheid te ontdekken. Een weighted random systeem bepaalt welk fossiel je vindt, en elke vondst geeft unieke informatie via een in-game tekst UI.",thumbnail:"/assets/poster garry.png",youtube:"https://www.youtube.com/watch?v=dQw4w9WgXcQ",screenshots:["https://picsum.photos/seed/shooter1/1200/800","https://picsum.photos/seed/shooter2/1200/800"],tags:["Unity","C#","AI","Topdown"],projectRole:"Programmer",timeline:"1 week",mechanics:[{subtitle:"Weighted Random Rarity Systeem",description:"Elk fossiel heeft een eigen gewicht (chance waarde) dat bepaalt hoe zeldzaam het is. Het systeem telt alle gewichten op tot een totalChance, trekt een random getal, en loopt door de lijst tot het weet welk fossiel de speler krijgt. Hoe hoger het gewicht, hoe vaker het fossiel voorkomt — zo zijn gemeenschappelijke fossielen makkelijker te vinden dan zeldzame exemplaren.",image:"https://placehold.co/600x400?text=Rarity+System",code:`GameObject GetRandomPrefab()
 {
-    switch(state)
+    float totalChance = 0f;
+    foreach (float c in chance)
+        totalChance += c;
+
+    float randomValue = Random.Range(0f, totalChance);
+
+    int i = 0;
+    foreach (GameObject p in prefabs)
     {
-        case Idle:
-            LookForPlayer();
-            break;
-
-        case Chase:
-            MoveTowardPlayer();
-            break;
-
-        case Attack:
-            TryShoot();
-            break;
+        if (randomValue < chance[i])
+        {
+            index = i;
+            return p;
+        }
+        randomValue -= chance[i];
+        i++;
     }
-}`},{subtitle:"Projectile System",description:"Hit-detection via raycasts met instant feedback - veel sneller en accurater dan physics-based projectiles. De raycast spawned een hit effect op het impact point en gebruikt layer masks om te bepalen wat geraakt kan worden. Elk schot krijgt een tracer effect die de bullet path visualiseert.",image:"https://placehold.co/600x400?text=Projectile",code:`void Shoot()
+    return null;
+}`},{subtitle:"Fossiel Info UI (TextMeshPro)",description:"Wanneer een fossiel gespawned wordt, leest het systeem automatisch de FossilInfo tekst uit het SpawnGem component op het gekozen prefab. Die tekst wordt direct weergegeven in de UI via TextMeshPro. Zo krijgt elke vondst meteen een unieke beschrijving in beeld, zonder dat de designer extra code hoeft te schrijven per fossiel.",image:"https://placehold.co/600x400?text=Fossil+Info",code:`void Start()
 {
-    Ray ray = new Ray(transform.position, transform.forward);
+    SelectedPrefab = GetRandomPrefab();
+    if (SelectedPrefab != null)
+        Instantiate(SelectedPrefab, transform.position, transform.rotation);
 
-    if (Physics.Raycast(ray, out var hit, 50f))
-    {
-        Debug.Log($"Hit {hit.collider.name}");
-    }
+    SpawnGem GemScript = SelectedPrefab.GetComponent<SpawnGem>();
+    if (GemScript != null)
+        FossilText.text = GemScript.FossilInfo;
+    else
+        FossilText.text = "No text about the fossil found!";
+}`},{subtitle:"Fossiel Catalogus Navigator",description:"De speler kan door alle gevonden fossielen bladeren via Next en Previous knoppen. Het systeem zet het huidige fossiel op inactief, verschuift de index, en activeert het volgende — met wrap-around zodat je na het laatste fossiel terug naar het eerste springt. Bij elke klik speelt ook een klikgeluid af via een AudioSource.",image:"https://placehold.co/600x400?text=Catalogus",code:`public void Next()
+{
+    ClickSound();
+    _fossils[currentImageIndex].SetActive(false);
+    currentImageIndex++;
+    if (currentImageIndex == _fossils.Count)
+        currentImageIndex = 0;
+    _fossils[currentImageIndex].SetActive(true);
+}
+
+public void Previous()
+{
+    ClickSound();
+    _fossils[currentImageIndex].SetActive(false);
+    currentImageIndex--;
+    if (currentImageIndex == -1)
+        currentImageIndex = _fossils.Count - 1;
+    _fossils[currentImageIndex].SetActive(true);
 }`}]},{id:"dingen die ik heb gemaakt in blender",title:"dingen die ik heb gemaakt in blender",tagline:"Een interactieve AR-applicatie voor museum bezoekers.",description:`De AR Museum Guide brengt museumtentoonstellingen tot leven door digitale content over fysieke objecten heen te projecteren en transformeert statische kunstwerken in interactieve verhalen. Een Romeins schilderij komt tot leven met animated characters, bij fossielen verschijnen 3D reconstructies.
 
 Gebruikers kunnen hun telefoon op kunstwerken richten om extra informatie, 3D modellen en interactieve elementen te zien die historical context bieden op een engaging manier.
