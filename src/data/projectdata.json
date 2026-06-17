@@ -95,10 +95,9 @@
       "tagline": "Graaf fossielen op en ontdek welke rariteit je krijgt.",
       "description": "( not just ) gold diggers is een fossielengraafspel waarbij spelers stenen breken om fossielen van verschillende zeldzaamheid te ontdekken. Een weighted random systeem bepaalt welk fossiel je vindt, en elke vondst geeft unieke informatie via een in-game tekst UI.",
       "thumbnail": "/assets/poster garry.png",
-      "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "youtube": "",
       "screenshots": [
-        "https://picsum.photos/seed/shooter1/1200/800",
-        "https://picsum.photos/seed/shooter2/1200/800"
+        "/assets/Gary.png"
       ],
       "tags": [
         "Unity",
