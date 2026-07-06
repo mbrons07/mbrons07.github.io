@@ -130,40 +130,37 @@
       ]
     },
     {
-      "id": "dingen die ik heb gemaakt in blender",
-      "title": "dingen die ik heb gemaakt in blender",
-      "tagline": "Een interactieve AR-applicatie voor museum bezoekers.",
-      "description": "De AR Museum Guide brengt museumtentoonstellingen tot leven door digitale content over fysieke objecten heen te projecteren en transformeert statische kunstwerken in interactieve verhalen. Een Romeins schilderij komt tot leven met animated characters, bij fossielen verschijnen 3D reconstructies.\n\nGebruikers kunnen hun telefoon op kunstwerken richten om extra informatie, 3D modellen en interactieve elementen te zien die historical context bieden op een engaging manier.\n\nDit project introduceerde mij in AR Foundation, image tracking en UI design voor augmented reality waarbij ik leerde werken met verschillende lighting conditions in musea.",
-      "thumbnail": "https://picsum.photos/seed/armuseum/1200/600",
-      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "id": "now you dye",
+      "title": "now you dye",
+      "tagline": "Een Unreal Engine project van 8 weken.",
+      "description": "Now You Dye is een project gemaakt in Unreal Engine over een periode van 8 weken.",
+      "thumbnail": "/assets/unreal_anim.png",
+      "youtube": "",
       "screenshots": [
-        "https://picsum.photos/seed/arm1/1200/800",
-        "https://picsum.photos/seed/arm2/1200/800"
+        "/assets/unreal_anim.png",
+        "/assets/dash_bp.png"
       ],
       "tags": [
-        "Unity",
-        "AR Foundation",
-        "Mobile",
-        "Image Tracking"
+        "Unreal Engine"
       ],
-      "projectRole": "AR Developer",
-      "timeline": "3 weken",
+      "projectRole": "Developer",
+      "timeline": "8 weeks",
       "mechanics": [
         {
-          "subtitle": "Image Tracking System",
-          "description": "Herkent kunstwerken en plaatst AR content op de juiste posities door gebruik te maken van AR Foundation's image tracking. Wanneer een artwork gedetecteerd wordt, spawned het systeem de bijbehorende content - info panels, 3D modellen of video overlays. De content blijft stabiel geanchored zelfs als de camera beweegt.",
-          "image": "https://placehold.co/600x400?text=Image+Tracking",
-          "code": "ggs gamer"
+          "subtitle": "Note",
+          "description": "Hieronder zie je twee screenshots uit het project: de animatie setup en het dash blueprint.",
+          "image": "/assets/unreal_anim.png",
+          "code": "// Unreal Engine - Now You Dye"
         },
         {
-          "subtitle": "Interactive 3D Models",
-          "description": "Gebruikers kunnen 3D modellen roteren en schalen met intuïtive touch gestures - single finger drag roteert, pinch zoom schaalt en two-finger drag verplaatst het model. Sommige modellen zijn animated en kunnen hun functie demonstreren. Custom shaders zorgen dat de modellen natuurlijk blenden met de real world door environment lighting.",
-          "image": "https://placehold.co/600x400?text=3D+Interaction",
-          "code": "void HandleTouchInput()\n{\n    if (Input.touchCount == 2)\n    {\n        Touch t1 = Input.GetTouch(0);\n        Touch t2 = Input.GetTouch(1);\n\n        float pinchDist = Vector2.Distance(t1.position, t2.position);\n        float scale = pinchDist / initialPinchDist;\n\n        model.localScale = initialScale * scale;\n    }\n}"
+          "subtitle": "Dash Blueprint",
+          "description": "Het dash mechanisme is opgezet via een Blueprint in Unreal Engine.",
+          "image": "/assets/dash_bp.png",
+          "code": "// Dash Blueprint - Now You Dye"
         }
       ],
       "git": "",
-      "itch": "https://fvugt.itch.io/ar-museum"
+      "itch": ""
     }
   ]
 }
