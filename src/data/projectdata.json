@@ -134,9 +134,17 @@
       "title": "now you dye",
       "tagline": "Een Unreal Engine project van 8 weken.",
       "description": "Now You Dye is een project gemaakt in Unreal Engine over een periode van 8 weken.",
-      "thumbnail": "/assets/unreal_anim.png",
+      "thumbnail": "/assets/cava_cool.png",
+      "cardImages": [
+        "/assets/cava_cool.png",
+        "/assets/pani_cool.png",
+        "/assets/risk_cool.png"
+      ],
       "youtube": "",
       "screenshots": [
+        "/assets/cava_cool.png",
+        "/assets/pani_cool.png",
+        "/assets/risk_cool.png",
         "/assets/unreal_anim.png",
         "/assets/dash_bp.png"
       ],
