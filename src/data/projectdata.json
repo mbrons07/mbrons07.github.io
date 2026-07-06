@@ -139,7 +139,8 @@
       "screenshots": [
         "/assets/cava.png",
         "/assets/pani.png",
-        "/assets/risk.png"
+        "/assets/risk.png",
+        "/assets/animation screenshot.png"
       ],
       "tags": [
         "Unreal Engine"
@@ -152,6 +153,12 @@
           "description": "Now You Dye bevat drie speelbare characters: Cava, Pani en Risk, elk met eigen moves.",
           "image": "/assets/cava.png",
           "code": "// Unreal Engine - Now You Dye"
+        },
+        {
+          "subtitle": "Animatie Systeem",
+          "description": "Het animatie systeem is opgezet in Unreal Engine via een Animation Blueprint. Het bevat vier states: Idle, Walk, Jump en een Is In Air check. De Is In Air variabele detecteert of het karakter de grond heeft verlaten, zodat de sprong- en landingsanimaties op het juiste moment afspelen. Dit zorgt ervoor dat bewegingen van het karakter natuurlijk en responsief aanvoelen.",
+          "image": "/assets/animation screenshot.png",
+          "code": "// Animation Blueprint - Now You Dye\n// States: Idle | Walk | Jump\n// IsInAir() -> determines jump/land transition"
         }
       ],
       "git": "",
