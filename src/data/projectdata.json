@@ -134,14 +134,12 @@
       "title": "now you dye",
       "tagline": "Een Unreal Engine project van 8 weken.",
       "description": "Now You Dye is een project gemaakt in Unreal Engine over een periode van 8 weken.",
-      "thumbnail": "/assets/cover_art_now_you_dye.png",
+      "thumbnail": "/assets/now_you_dye.png",
       "youtube": "",
       "screenshots": [
-        "/assets/cava_cool.png",
-        "/assets/pani_cool.png",
-        "/assets/risk_cool.png",
-        "/assets/unreal_anim.png",
-        "/assets/dash_bp.png"
+        "/assets/cava.png",
+        "/assets/pani.png",
+        "/assets/risk.png"
       ],
       "tags": [
         "Unreal Engine"
@@ -150,16 +148,10 @@
       "timeline": "8 weeks",
       "mechanics": [
         {
-          "subtitle": "Note",
-          "description": "Hieronder zie je twee screenshots uit het project: de animatie setup en het dash blueprint.",
-          "image": "/assets/unreal_anim.png",
+          "subtitle": "Characters",
+          "description": "Now You Dye bevat drie speelbare characters: Cava, Pani en Risk, elk met eigen moves.",
+          "image": "/assets/cava.png",
           "code": "// Unreal Engine - Now You Dye"
-        },
-        {
-          "subtitle": "Dash Blueprint",
-          "description": "Het dash mechanisme is opgezet via een Blueprint in Unreal Engine.",
-          "image": "/assets/dash_bp.png",
-          "code": "// Dash Blueprint - Now You Dye"
         }
       ],
       "git": "",
