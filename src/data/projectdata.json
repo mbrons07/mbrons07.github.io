@@ -159,6 +159,12 @@
           "description": "Het animatie systeem is opgezet in Unreal Engine via een Animation Blueprint. Het bevat vier states: Idle, Walk, Jump en een Is In Air check. De Is In Air variabele detecteert of het karakter de grond heeft verlaten, zodat de sprong- en landingsanimaties op het juiste moment afspelen. Dit zorgt ervoor dat bewegingen van het karakter natuurlijk en responsief aanvoelen.",
           "image": "/assets/animation screenshot.png",
           "code": "// Animation Blueprint - Now You Dye\n// States: Idle | Walk | Jump\n// IsInAir() -> determines jump/land transition"
+        },
+        {
+          "subtitle": "Dash Ability",
+          "description": "De dash ability is geïmplementeerd via een Unreal Engine Blueprint. Bij activatie wordt de richting van de speler genormaliseerd, gevolgd door een Launch Character call met de juiste kracht. Een cooldown systeem voorkomt dat de speler de dash te snel opnieuw kan gebruiken. De ability spawnt ook een trail effect tijdens de dash.",
+          "blueprint": "/assets/bp_dash.png",
+          "code": "// Dash Blueprint - Now You Dye\n// 1. Cooldown check via ConstrainAbility\n// 2. Get last input vector -> Normalize\n// 3. Launch Character with dash strength\n// 4. Set IsDashing = true\n// 5. Apply Root Motion Constant Force\n// 6. On Finish: Set IsDashing = false"
         }
       ],
       "git": "",

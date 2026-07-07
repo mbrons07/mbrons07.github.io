@@ -8,6 +8,7 @@ cp "$SRC/Pani cool.png"             "$DEST/pani_cool.png"
 cp "$SRC/Risk Cool.png"             "$DEST/risk_cool.png"
 cp "$SRC/unreal anim.png"           "$DEST/unreal_anim.png"
 cp "$SRC/dash bp.png"               "$DEST/dash_bp.png"
+cp "$SRC/bp_dash.png"               "$DEST/bp_dash.png"
 
 echo "✓ Done! Copied:"
 ls "$DEST" | grep -E "cover|cava|pani|risk|unreal|dash"
