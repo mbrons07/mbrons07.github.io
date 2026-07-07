@@ -4,7 +4,9 @@
       "id": "curse of the baby mask",
       "title": "curse of the baby mask",
       "tagline": "een baby waarop ge expirimenteerd is komt achter je aan",
+      "tagline_en": "a baby that was experimented on is coming after you",
       "description": "een baby waarop ge expirimenteerd is komt achter je aan",
+      "description_en": "a baby that was experimented on is coming after you",
       "youtube": "/assets/game_jam/curse of the baby mask video.mp4",
       "screenshots": [
         "/assets/game_jam/curse-baby-mask.png"
@@ -17,18 +19,24 @@
         "Game Jam"
       ],
       "projectRole": "Gameplay Programmer",
+      "projectRole_en": "Gameplay Programmer",
       "timeline": "2 weken",
+      "timeline_en": "2 weeks",
       "thumbnail": "/assets/game_jam/curse-baby-mask.png",
       "mechanics": [
         {
           "subtitle": "Movement System",
+          "subtitle_en": "Movement System",
           "description": "De speler gebruikt thrust-based movement en smooth rotation, net als klassieke arcade shooters. In plaats van directe positie updates werkt alles met physics forces, wat zorgt voor natuurlijk momentum en inertia. Ook implementeerde ik screen-wrap waarbij je aan de ene kant verdwijnt en aan de andere kant verschijnt.",
+          "description_en": "The player uses thrust-based movement and smooth rotation, just like classic arcade shooters. Instead of direct position updates, everything works with physics forces, which ensures natural momentum and inertia. I also implemented screen-wrap where you disappear on one side and reappear on the other.",
           "image": "https://picsum.photos/seed/e1/1200/800",
           "code": ""
         },
         {
           "subtitle": "Asteroid Spawner",
+          "subtitle_en": "Asteroid Spawner",
           "description": "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
+          "description_en": "Asteroids spawn in random sizes, rotations, and speeds to make each wave unique. The spawning system uses a sphere-based approach where asteroids always appear outside the field of view. Large asteroids split into smaller pieces when hit, ensuring dynamic gameplay.",
           "image": "https://picsum.photos/seed/e2/1200/800",
           "code": "void SpawnAsteroid()\n{\n    Vector3 pos = Random.onUnitSphere * spawnRadius;\n    float size = Random.Range(0.5f, 2.5f);\n\n    GameObject ast = Instantiate(asteroidPrefab, pos, Random.rotation);\n    ast.transform.localScale = Vector3.one * size;\n\n    Rigidbody rb = ast.GetComponent<Rigidbody>();\n    rb.AddForce(Random.onUnitSphere * Random.Range(5,15), ForceMode.Impulse);\n}"
         }
@@ -40,7 +48,9 @@
       "id": "bubble-blaster",
       "title": "Bubble Blaster",
       "tagline": "Een kleurrijke bubble-popping game",
+      "tagline_en": "A colorful bubble-popping game",
       "description": "je je huis schoonmaakt met bubbels",
+      "description_en": "cleaning your house with bubbles",
       "thumbnail": "https://picsum.photos/seed/bubble/1200/600",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": [
@@ -54,7 +64,9 @@
         "2D"
       ],
       "projectRole": "Programmer",
+      "projectRole_en": "Programmer",
       "timeline": "2 dagen",
+      "timeline_en": "2 days",
       "mechanics": [],
       "git": "",
       "itch": ""
@@ -63,7 +75,9 @@
       "id": "symphony of skin",
       "title": "symphony of skin",
       "tagline": "Een VR escape room met physics puzzels en interacties.",
+      "tagline_en": "A VR escape room with physics puzzles and interactions.",
       "description": "dat het een immersive instalatie is in de school",
+      "description_en": "an immersive installation at school",
       "thumbnail": "https://picsum.photos/seed/xr/1200/600",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": [
@@ -79,11 +93,15 @@
         "VR"
       ],
       "projectRole": "XR Interaction Designer",
+      "projectRole_en": "XR Interaction Designer",
       "timeline": "3 weken",
+      "timeline_en": "3 weeks",
       "mechanics": [
         {
           "subtitle": "Grab Interaction",
+          "subtitle_en": "Grab Interaction",
           "description": "Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw mechanic tracked controller velocity over meerdere frames voor realistische gooibewegingen.",
+          "description_en": "Objects are physically picked up using XR Grab Interactables with dynamically adjusted physics properties. For small objects I use precision grabs, while large objects use velocity-based grabs that feel more natural. The throw mechanic tracks controller velocity over multiple frames for realistic throwing movements.",
           "image": "https://placehold.co/600x400?text=Grab",
           "code": "public void OnSelectEntered(SelectEnterEventArgs args)\n{\n    grabbed = true;\n    rb.isKinematic = true;\n}\n\npublic void OnSelectExited(SelectExitEventArgs args)\n{\n    grabbed = false;\n    rb.isKinematic = false;\n}"
         }
@@ -93,7 +111,9 @@
       "id": "( not just ) gold diggers",
       "title": "( not just ) gold diggers",
       "tagline": "Graaf fossielen op en ontdek welke rariteit je krijgt.",
+      "tagline_en": "Dig up fossils and discover which rarity you get.",
       "description": "( not just ) gold diggers is een fossielengraafspel waarbij spelers stenen breken om fossielen van verschillende zeldzaamheid te ontdekken. Een weighted random systeem bepaalt welk fossiel je vindt, en elke vondst geeft unieke informatie via een in-game tekst UI.",
+      "description_en": "( not just ) gold diggers is a fossil digging game where players break stones to discover fossils of different rarities. A weighted random system determines which fossil you find, and each discovery provides unique info via an in-game text UI.",
       "thumbnail": "/assets/poster garry.png",
       "youtube": "",
       "screenshots": [
@@ -107,23 +127,31 @@
         "Topdown"
       ],
       "projectRole": "Programmer",
+      "projectRole_en": "Programmer",
       "timeline": "1 week",
+      "timeline_en": "1 week",
       "mechanics": [
         {
           "subtitle": "Weighted Random Rarity Systeem",
+          "subtitle_en": "Weighted Random Rarity System",
           "description": "Elk fossiel heeft een eigen gewicht (chance waarde) dat bepaalt hoe zeldzaam het is. Het systeem telt alle gewichten op tot een totalChance, trekt een random getal, en loopt door de lijst tot het weet welk fossiel de speler krijgt. Hoe hoger het gewicht, hoe vaker het fossiel voorkomt — zo zijn gemeenschappelijke fossielen makkelijker te vinden dan zeldzame exemplaren.",
+          "description_en": "Each fossil has its own weight (chance value) that determines how rare it is. The system sums all weights to a totalChance, draws a random number, and iterates through the list to determine which fossil the player gets. The higher the weight, the more common the fossil — making common fossils easier to find than rare ones.",
           "image": "https://placehold.co/600x400?text=Rarity+System",
           "code": "GameObject GetRandomPrefab()\n{\n    float totalChance = 0f;\n    foreach (float c in chance)\n        totalChance += c;\n\n    float randomValue = Random.Range(0f, totalChance);\n\n    int i = 0;\n    foreach (GameObject p in prefabs)\n    {\n        if (randomValue < chance[i])\n        {\n            index = i;\n            return p;\n        }\n        randomValue -= chance[i];\n        i++;\n    }\n    return null;\n}"
         },
         {
           "subtitle": "Fossiel Info UI (TextMeshPro)",
+          "subtitle_en": "Fossil Info UI (TextMeshPro)",
           "description": "Wanneer een fossiel gespawned wordt, leest het systeem automatisch de FossilInfo tekst uit het SpawnGem component op het gekozen prefab. Die tekst wordt direct weergegeven in de UI via TextMeshPro. Zo krijgt elke vondst meteen een unieke beschrijving in beeld, zonder dat de designer extra code hoeft te schrijven per fossiel.",
+          "description_en": "When a fossil is spawned, the system automatically reads the FossilInfo text from the SpawnGem component on the chosen prefab. This text is directly displayed in the UI via TextMeshPro. This way, each find immediately gets a unique on-screen description without the designer having to write extra code per fossil.",
           "image": "https://placehold.co/600x400?text=Fossil+Info",
           "code": "void Start()\n{\n    SelectedPrefab = GetRandomPrefab();\n    if (SelectedPrefab != null)\n        Instantiate(SelectedPrefab, transform.position, transform.rotation);\n\n    SpawnGem GemScript = SelectedPrefab.GetComponent<SpawnGem>();\n    if (GemScript != null)\n        FossilText.text = GemScript.FossilInfo;\n    else\n        FossilText.text = \"No text about the fossil found!\";\n}"
         },
         {
           "subtitle": "Fossiel Catalogus Navigator",
+          "subtitle_en": "Fossil Catalog Navigator",
           "description": "De speler kan door alle gevonden fossielen bladeren via Next en Previous knoppen. Het systeem zet het huidige fossiel op inactief, verschuift de index, en activeert het volgende — met wrap-around zodat je na het laatste fossiel terug naar het eerste springt. Bij elke klik speelt ook een klikgeluid af via een AudioSource.",
+          "description_en": "The player can browse through all found fossils using Next and Previous buttons. The system sets the current fossil to inactive, shifts the index, and activates the next one — with wrap-around so you jump back to the first one after the last fossil. A click sound is also played on each click via an AudioSource.",
           "image": "https://placehold.co/600x400?text=Catalogus",
           "code": "public void Next()\n{\n    ClickSound();\n    _fossils[currentImageIndex].SetActive(false);\n    currentImageIndex++;\n    if (currentImageIndex == _fossils.Count)\n        currentImageIndex = 0;\n    _fossils[currentImageIndex].SetActive(true);\n}\n\npublic void Previous()\n{\n    ClickSound();\n    _fossils[currentImageIndex].SetActive(false);\n    currentImageIndex--;\n    if (currentImageIndex == -1)\n        currentImageIndex = _fossils.Count - 1;\n    _fossils[currentImageIndex].SetActive(true);\n}"
         }
@@ -133,7 +161,9 @@
       "id": "now you dye",
       "title": "now you dye",
       "tagline": "Een Unreal Engine project van 8 weken.",
+      "tagline_en": "An Unreal Engine project of 8 weeks.",
       "description": "Now You Dye is een project gemaakt in Unreal Engine over een periode van 8 weken.",
+      "description_en": "Now You Dye is a project made in Unreal Engine over a period of 8 weeks.",
       "thumbnail": "/assets/now_you_dye.png",
       "youtube": "",
       "screenshots": [
@@ -146,23 +176,31 @@
         "Unreal Engine"
       ],
       "projectRole": "Developer",
+      "projectRole_en": "Developer",
       "timeline": "8 weeks",
+      "timeline_en": "8 weeks",
       "mechanics": [
         {
           "subtitle": "Characters",
+          "subtitle_en": "Characters",
           "description": "Now You Dye bevat drie speelbare characters: Cava, Pani en Risk, elk met eigen moves.",
+          "description_en": "Now You Dye features three playable characters: Cava, Pani, and Risk, each with their own unique moves.",
           "image": "/assets/cava.png",
           "code": "// Unreal Engine - Now You Dye"
         },
         {
           "subtitle": "Animatie Systeem",
+          "subtitle_en": "Animation System",
           "description": "Het animatie systeem is opgezet in Unreal Engine via een Animation Blueprint. Het bevat vier states: Idle, Walk, Jump en een Is In Air check. De Is In Air variabele detecteert of het karakter de grond heeft verlaten, zodat de sprong- en landingsanimaties op het juiste moment afspelen. Dit zorgt ervoor dat bewegingen van het karakter natuurlijk en responsief aanvoelen.",
+          "description_en": "The animation system is set up in Unreal Engine using an Animation Blueprint. It contains four states: Idle, Walk, Jump, and an Is In Air check. The Is In Air variable detects whether the character has left the ground, so that the jump and land animations play at the correct moment. This ensures character movements feel natural and responsive.",
           "image": "/assets/animation screenshot.png",
           "code": "// Animation Blueprint - Now You Dye\n// States: Idle | Walk | Jump\n// IsInAir() -> determines jump/land transition"
         },
         {
           "subtitle": "Dash Ability",
+          "subtitle_en": "Dash Ability",
           "description": "De dash ability is geïmplementeerd via een Unreal Engine Blueprint. Bij activatie wordt de richting van de speler genormaliseerd, gevolgd door een Launch Character call met de juiste kracht. Een cooldown systeem voorkomt dat de speler de dash te snel opnieuw kan gebruiken. De ability spawnt ook een trail effect tijdens de dash.",
+          "description_en": "The dash ability is implemented using an Unreal Engine Blueprint. Upon activation, the player's direction is normalized, followed by a Launch Character call with the appropriate force. A cooldown system prevents the player from using the dash again too quickly. The ability also spawns a trail effect during the dash.",
           "blueprint": "/assets/bp_dash.png",
           "code": "// Dash Blueprint - Now You Dye\n// 1. Cooldown check via ConstrainAbility\n// 2. Get last input vector -> Normalize\n// 3. Launch Character with dash strength\n// 4. Set IsDashing = true\n// 5. Apply Root Motion Constant Force\n// 6. On Finish: Set IsDashing = false"
         }

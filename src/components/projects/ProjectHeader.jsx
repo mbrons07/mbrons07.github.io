@@ -1,10 +1,17 @@
+import { useLang } from "../../context/LanguageContext";
+
 export default function ProjectHeader({ project }) {
+  const { lang } = useLang();
+
+  const title = lang === "en" ? project.title_en || project.title : project.title;
+  const tagline = lang === "en" ? project.tagline_en || project.tagline : project.tagline;
+
   return (
     <div className="relative w-full mb-4 overflow-hidden">
       {/* Banner Image */}
       <img 
         src={project.thumbnail} 
-        alt={project.title} 
+        alt={title} 
         className="w-full h-48 sm:h-64 object-cover" 
       />
 
@@ -13,8 +20,8 @@ export default function ProjectHeader({ project }) {
 
       {/* Text overlay */}
       <div className="absolute bottom-4 left-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md mb-1">{project.title}</h1>
-        <p className="text-base text-gray-300 max-w-xl drop-shadow-sm font-medium">{project.tagline}</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md mb-1">{title}</h1>
+        <p className="text-base text-gray-300 max-w-xl drop-shadow-sm font-medium">{tagline}</p>
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useLang } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 export default function ProjectMechanics({ project }) {
+  const { lang } = useLang();
+  const tr = t[lang];
+
   // Skip als er geen mechanics zijn
   if (!project.mechanics || project.mechanics.length === 0) {
     return null;
@@ -9,11 +14,14 @@ export default function ProjectMechanics({ project }) {
 
   return (
     <div className="mx-4">
-      <h2 className="text-xl font-semibold text-(--text) mb-4">Code Highlights</h2>
+      <h2 className="text-xl font-semibold text-(--text) mb-4">{tr.project.codeHighlights}</h2>
 
       {project.mechanics.map((m, i) => {
         const imgUrl = m.blueprint || m.image;
         const isNowYouDye = project.id === "now you dye";
+
+        const subtitle = lang === "en" ? m.subtitle_en || m.subtitle : m.subtitle;
+        const description = lang === "en" ? m.description_en || m.description : m.description;
 
         const codeBlock = (
           <div className="h-60 overflow-auto rounded-lg">
@@ -36,7 +44,7 @@ export default function ProjectMechanics({ project }) {
           <a href={imgUrl} target="_blank" rel="noopener noreferrer">
             <img
               src={imgUrl}
-              alt={m.subtitle}
+              alt={subtitle}
               className="w-full h-60 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
             />
           </a>
@@ -46,8 +54,8 @@ export default function ProjectMechanics({ project }) {
           <div key={i} className="flex flex-col gap-4 border-b border-(--bordercolor) pb-4 mb-4">
             {/* Title + Description */}
             <div>
-              <h3 className="text-lg font-semibold mb-2 text-(--text)">{m.subtitle}</h3>
-              <p className="leading-relaxed text-(--muted)">{m.description}</p>
+              <h3 className="text-lg font-semibold mb-2 text-(--text)">{subtitle}</h3>
+              <p className="leading-relaxed text-(--muted)">{description}</p>
             </div>
 
             {/* Code + Image Grid */}

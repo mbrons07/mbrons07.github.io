@@ -50,6 +50,20 @@ export const t = {
       role: "XR Developer",
       tagline: "Ik bouw interactieve XR-ervaringen die zich natuurlijk en intuïtief aanvoelen.",
     },
+
+    // Project details page
+    project: {
+      about: "Over dit project",
+      details: "Details",
+      role: "Rol",
+      timeline: "Tijdlijn",
+      tags: "Tags",
+      viewProject: "Bekijk Project →",
+      notFound: "Project niet gevonden",
+      codeHighlights: "Code Highlights",
+      previous: "Vorige",
+      next: "Volgende",
+    },
   },
 
   en: {
@@ -102,6 +116,20 @@ export const t = {
     site: {
       role: "XR Developer",
       tagline: "I build interactive XR experiences that feel natural and intuitive.",
+    },
+
+    // Project details page
+    project: {
+      about: "About this project",
+      details: "Details",
+      role: "Role",
+      timeline: "Timeline",
+      tags: "Tags",
+      viewProject: "View Project →",
+      notFound: "Project not found",
+      codeHighlights: "Code Highlights",
+      previous: "Previous",
+      next: "Next",
     },
   },
 };

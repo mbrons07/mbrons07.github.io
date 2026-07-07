@@ -1,5 +1,15 @@
+import { useLang } from "../../context/LanguageContext";
+import { t } from "../../translations";
+
 export default function ProjectInfo({ project }) {
-    const paragraphs = project.description.split("\n\n");
+  const { lang } = useLang();
+  const tr = t[lang];
+
+  const description = lang === "en" ? project.description_en || project.description : project.description;
+  const projectRole = lang === "en" ? project.projectRole_en || project.projectRole : project.projectRole;
+  const timeline = lang === "en" ? project.timeline_en || project.timeline : project.timeline;
+
+  const paragraphs = description.split("\n\n");
 
   return (
     <div className="mb-4 border-b border-(--bordercolor) pb-8 ml-4 mr-4">
@@ -7,7 +17,7 @@ export default function ProjectInfo({ project }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Description - takes 2 columns on desktop */}
         <div className="md:col-span-2 space-y-3">
-          <h2 className="text-xl font-semibold text-(--text)">Over dit project</h2>
+          <h2 className="text-xl font-semibold text-(--text)">{tr.project.about}</h2>
 
           {/* Render each paragraph separately for better spacing */}
           {paragraphs.map((text, i) => (
@@ -19,21 +29,21 @@ export default function ProjectInfo({ project }) {
 
         {/* Project details sidebar */}
         <div className="h-fit md:self-start">
-          <h3 className="text-xl font-semibold mb-4 text-(--text) border-b border-(--bordercolor) pb-2">Details</h3>
+          <h3 className="text-xl font-semibold mb-4 text-(--text) border-b border-(--bordercolor) pb-2">{tr.project.details}</h3>
 
           <ul className="text-sm space-y-2 text-(--muted)">
             <li className="flex justify-between border-b border-(--bordercolor) pb-1">
-              <span className="font-medium text-(--text)">Rol</span>
-              <span>{project.projectRole}</span>
+              <span className="font-medium text-(--text)">{tr.project.role}</span>
+              <span>{projectRole}</span>
             </li>
 
             <li className="flex justify-between border-b border-(--bordercolor) pb-1">
-              <span className="font-medium text-(--text)">Tijdlijn</span>
-              <span>{project.timeline}</span>
+              <span className="font-medium text-(--text)">{tr.project.timeline}</span>
+              <span>{timeline}</span>
             </li>
 
             <li className="flex justify-between items-center pb-1">
-              <span className="font-medium text-(--text)">Tags</span>
+              <span className="font-medium text-(--text)">{tr.project.tags}</span>
               <div className="flex flex-wrap gap-1.5 justify-end">
                 {project.tags.map((tag) => (
                   <span key={tag} className="tag">

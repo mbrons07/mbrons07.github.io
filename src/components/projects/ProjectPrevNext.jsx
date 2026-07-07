@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "../icons/icons.jsx";
+import { useLang } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 export default function ProjectPrevNext({ previous, next }) {
+  const { lang } = useLang();
+  const tr = t[lang];
+
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -17,7 +22,7 @@ export default function ProjectPrevNext({ previous, next }) {
               to={previous.url}
               onClick={scrollToTop}
               className="pointer-events-auto w-12 h-12 rounded-full bg-(--surface) border-2 border-(--bordercolor) hover:border-(--accent) hover:bg-(--accent) hover:text-(--accent-text) flex items-center justify-center transition-all shadow-lg group -ml-20"
-              title={`Vorige: ${previous.title}`}
+              title={`${tr.project.previous}: ${previous.title}`}
             >
               <ArrowLeft className="w-6 h-6 text-(--muted) group-hover:text-(--accent) group-hover:-translate-x-0.5 transition-transform" aria-hidden />
             </Link>
@@ -31,7 +36,7 @@ export default function ProjectPrevNext({ previous, next }) {
               to={next.url}
               onClick={scrollToTop}
               className="pointer-events-auto w-12 h-12 rounded-full bg-(--surface) border-2 border-(--bordercolor) hover:border-(--accent) hover:bg-(--accent) hover:text-(--accent-text) flex items-center justify-center transition-all shadow-lg group -mr-20"
-              title={`Volgende: ${next.title}`}
+              title={`${tr.project.next}: ${next.title}`}
             >
               <ArrowRight className="w-6 h-6 text-(--muted) group-hover:text-(--accent) group-hover:translate-x-0.5 transition-transform" aria-hidden />
             </Link>
@@ -54,7 +59,7 @@ export default function ProjectPrevNext({ previous, next }) {
             >
               <ArrowLeft className="w-5 h-5 shrink-0 text-(--muted) group-hover:text-(--accent) group-hover:-translate-x-1 transition-transform" aria-hidden />
               <div className="flex flex-col min-w-0">
-                <span className="text-xs text-(--muted) uppercase tracking-wider">Vorige</span>
+                <span className="text-xs text-(--muted) uppercase tracking-wider">{tr.project.previous}</span>
                 <span className="font-semibold truncate">{previous.title}</span>
               </div>
             </Link>
@@ -70,7 +75,7 @@ export default function ProjectPrevNext({ previous, next }) {
               className="group flex items-center gap-3 hover:text-(--accent) transition-colors max-w-[45%] ml-auto"
             >
               <div className="flex flex-col min-w-0 text-right">
-                <span className="text-xs text-(--muted) uppercase tracking-wider">Volgende</span>
+                <span className="text-xs text-(--muted) uppercase tracking-wider">{tr.project.next}</span>
                 <span className="font-semibold truncate">{next.title}</span>
               </div>
               <ArrowRight className="w-5 h-5 shrink-0 text-(--muted) group-hover:text-(--accent) group-hover:translate-x-1 transition-transform" aria-hidden />
