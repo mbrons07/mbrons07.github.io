@@ -15,13 +15,12 @@
         "Unity",
         "C#",
         "3D",
-        "Physics",
         "Game Jam"
       ],
       "projectRole": "Gameplay Programmer",
       "projectRole_en": "Gameplay Programmer",
-      "timeline": "2 weken",
-      "timeline_en": "2 weeks",
+      "timeline": "1 dag",
+      "timeline_en": "1 day",
       "thumbnail": "/assets/game_jam/curse-baby-mask.png",
       "mechanics": [
         {
@@ -52,7 +51,7 @@
       "description": "je je huis schoonmaakt met bubbels",
       "description_en": "cleaning your house with bubbles",
       "thumbnail": "/assets/main_screen_bubble_blasters.png",
-      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "youtube": "",
       "screenshots": [
         "/assets/main_screen_bubble_blasters.png"
       ],
@@ -64,8 +63,8 @@
       ],
       "projectRole": "Programmer",
       "projectRole_en": "Programmer",
-      "timeline": "2 dagen",
-      "timeline_en": "2 days",
+      "timeline": "1 dag",
+      "timeline_en": "1 day",
       "mechanics": [
         {
           "subtitle": "Deur Interactie Systeem",
@@ -74,46 +73,18 @@
           "description_en": "A script that controls the door opening and closing animations when a player enters a trigger zone. The script triggers the door's open or close animation based on set trigger conditions and can deactivate the GameObject afterward.",
           "image": "/assets/main_screen_bubble_blasters.png",
           "code": "using Unity.VisualScripting;\n//using UnityEditor.Build;\nusing UnityEngine;\n\npublic class house2door : MonoBehaviour\n{\n    [SerializeField] private Animator DoorOpen = null;\n    [SerializeField] private Animator DoorClosed = null;\n\n    [SerializeField] private bool openTrigger = false;\n    [SerializeField] private bool closeTrigger = false;\n\n    [SerializeField] private string doorOpen = \"house2\";\n    [SerializeField] private string doorClose = \"DoorClose\";\n\n    private void Start()\n    {   \n        DoorOpen = GetComponent<Animator>();\n    }\n\n    private void OnTriggerEnter(Collider other)\n    {   \n        if (!openTrigger)\n        {   \n            Debug.Log(\"trigger door open\");\n            DoorOpen.Play(\"house2\", 0, 0f);\n            //gameObject.SetActive(false);\n        }\n        else if (closeTrigger)\n        {   \n            DoorClosed.Play(\"doorClose\", 0, 0.0f);\n            gameObject.SetActive(false);\n        }\n    }\n}"
+        },
+        {
+          "subtitle": "Wapen Schietsysteem",
+          "subtitle_en": "Gun Shooting System",
+          "description": "Een script voor het schieten van projectielen (bubbels). Het controleert de schiet-cooldown, start de schiet-animatie en instantieert een kogel-prefab met een voorwaartse snelheid.",
+          "description_en": "A script for shooting projectiles (bubbles). It manages the shooting cooldown, triggers the shoot animation, and instantiates a bullet prefab with a forward velocity.",
+          "image": "/assets/main_screen_bubble_blasters.png",
+          "code": "using Unity.Mathematics;\nusing UnityEngine;\n\npublic class Gun : MonoBehaviour\n{\n    private Animator GunAnimation;\n   [SerializeField] private Rigidbody Bullet;\n   [SerializeField] private GameObject FireLocation;\n    private string gunanim = \"gunanim\";\n    private float cooldown;\n\n    private void Start()\n    {   \n        GunAnimation = GetComponent<Animator>();\n    }\n    void Update()\n    { \n        cooldown = cooldown - Time.deltaTime;\n        if (Input.GetMouseButtonDown(0))\n        {\n            if (cooldown <= 0)\n            {\n                GunAnimation.Play(\"gun\", 0, 0f);\n            Rigidbody bulletclone;\n            bulletclone = Instantiate(Bullet, FireLocation.transform.position, FireLocation.transform.rotation);\n            bulletclone.linearVelocity = transform.TransformDirection(Vector3.forward * 10);\n            cooldown = 0.2f;\n            }\n        }\n    }\n}"
         }
       ],
       "git": "",
       "itch": ""
-    },
-    {
-      "id": "symphony of skin",
-      "title": "symphony of skin",
-      "tagline": "Een VR escape room met physics puzzels en interacties.",
-      "tagline_en": "A VR escape room with physics puzzles and interactions.",
-      "description": "dat het een immersive instalatie is in de school",
-      "description_en": "an immersive installation at school",
-      "thumbnail": "https://picsum.photos/seed/xr/1200/600",
-      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "screenshots": [
-        "https://picsum.photos/seed/xr1/1200/800",
-        "https://picsum.photos/seed/xr2/1200/800",
-        "https://picsum.photos/seed/xr3/1200/800"
-      ],
-      "tags": [
-        "visual studio code",
-        "immersive instalation",
-        "C#",
-        "XR",
-        "VR"
-      ],
-      "projectRole": "XR Interaction Designer",
-      "projectRole_en": "XR Interaction Designer",
-      "timeline": "3 weken",
-      "timeline_en": "3 weeks",
-      "mechanics": [
-        {
-          "subtitle": "Grab Interaction",
-          "subtitle_en": "Grab Interaction",
-          "description": "Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw mechanic tracked controller velocity over meerdere frames voor realistische gooibewegingen.",
-          "description_en": "Objects are physically picked up using XR Grab Interactables with dynamically adjusted physics properties. For small objects I use precision grabs, while large objects use velocity-based grabs that feel more natural. The throw mechanic tracks controller velocity over multiple frames for realistic throwing movements.",
-          "image": "https://placehold.co/600x400?text=Grab",
-          "code": "public void OnSelectEntered(SelectEnterEventArgs args)\n{\n    grabbed = true;\n    rb.isKinematic = true;\n}\n\npublic void OnSelectExited(SelectExitEventArgs args)\n{\n    grabbed = false;\n    rb.isKinematic = false;\n}"
-        }
-      ]
     },
     {
       "id": "( not just ) gold diggers",
@@ -130,14 +101,12 @@
       ],
       "tags": [
         "Unity",
-        "C#",
-        "AI",
-        "Topdown"
+        "C#"
       ],
       "projectRole": "Programmer",
       "projectRole_en": "Programmer",
-      "timeline": "1 week",
-      "timeline_en": "1 week",
+      "timeline": "6 weken",
+      "timeline_en": "6 weeks",
       "mechanics": [
         {
           "subtitle": "Weighted Random Rarity Systeem",
