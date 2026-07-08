@@ -51,23 +51,31 @@
       "tagline_en": "A colorful bubble-popping game",
       "description": "je je huis schoonmaakt met bubbels",
       "description_en": "cleaning your house with bubbles",
-      "thumbnail": "https://picsum.photos/seed/bubble/1200/600",
+      "thumbnail": "/assets/main_screen_bubble_blasters.png",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": [
-        "https://picsum.photos/seed/bubble1/1200/800",
-        "https://picsum.photos/seed/bubble2/1200/800"
+        "/assets/main_screen_bubble_blasters.png"
       ],
       "tags": [
         "Unity",
         "C#",
         "Game Jam",
-        "2D"
+        "3D"
       ],
       "projectRole": "Programmer",
       "projectRole_en": "Programmer",
       "timeline": "2 dagen",
       "timeline_en": "2 days",
-      "mechanics": [],
+      "mechanics": [
+        {
+          "subtitle": "Deur Interactie Systeem",
+          "subtitle_en": "Door Interaction System",
+          "description": "Een script dat de animaties voor het openen en sluiten van deuren regelt wanneer de speler een trigger-zone betreedt. Het script activeert de open- of sluit-animatie van de deur op basis van de ingestelde triggers en kan het object naderhand deactiveren.",
+          "description_en": "A script that controls the door opening and closing animations when a player enters a trigger zone. The script triggers the door's open or close animation based on set trigger conditions and can deactivate the GameObject afterward.",
+          "image": "/assets/main_screen_bubble_blasters.png",
+          "code": "using Unity.VisualScripting;\n//using UnityEditor.Build;\nusing UnityEngine;\n\npublic class house2door : MonoBehaviour\n{\n    [SerializeField] private Animator DoorOpen = null;\n    [SerializeField] private Animator DoorClosed = null;\n\n    [SerializeField] private bool openTrigger = false;\n    [SerializeField] private bool closeTrigger = false;\n\n    [SerializeField] private string doorOpen = \"house2\";\n    [SerializeField] private string doorClose = \"DoorClose\";\n\n    private void Start()\n    {   \n        DoorOpen = GetComponent<Animator>();\n    }\n\n    private void OnTriggerEnter(Collider other)\n    {   \n        if (!openTrigger)\n        {   \n            Debug.Log(\"trigger door open\");\n            DoorOpen.Play(\"house2\", 0, 0f);\n            //gameObject.SetActive(false);\n        }\n        else if (closeTrigger)\n        {   \n            DoorClosed.Play(\"doorClose\", 0, 0.0f);\n            gameObject.SetActive(false);\n        }\n    }\n}"
+        }
+      ],
       "git": "",
       "itch": ""
     },
